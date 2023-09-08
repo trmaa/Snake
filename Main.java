@@ -1,5 +1,4 @@
 public class Main {
-    public static int iter = 0;
     public static Canvas cvs = new Canvas();
     public static Ventana ventana = new Ventana();
 
@@ -19,10 +18,9 @@ public class Main {
     }
 
     public static void loop() {
-        Main.iter++;
         Main.cvs.repaint();
 
-        Sneak.update();
-        world.print();
+        Snake.update();
+        Main.world.print();
     }
 }

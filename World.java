@@ -8,26 +8,23 @@ public class World {
     public World() {
         for (int x = 0; x < this.width; x++) {
             for (int y = 0; y < this.width; y++) {
-                grid[x + y * this.width] = 0;
-                id[x + y * this.width][0] = x;
-                id[x + y * this.width][1] = y;
+                this.grid[x + y * this.width] = 0;
+                this.id[x + y * this.width][0] = x;
+                this.id[x + y * this.width][1] = y;
             }
         }
     }
 
     public void print() {
-        for (int x = 0; x < this.width; x++) {
-            for (int y = 0; y < this.width; y++) {
-                grid[x + y * this.width] = 0;
-            }
-        }
+        for (int x = 0; x < this.width; x++) 
+            for (int y = 0; y < this.width; y++) 
+                this.grid[x + y * this.width] = 0;
 
-        grid[Sneak.head] = 1;
+        this.grid[Snake.head] = 1;
 
-        for (int i = 0; i < Sneak.points; i++) {
-            grid[Sneak.body[i]] = 1;
-        }
+        for (int i = 0; i < Snake.points; i++)
+            this.grid[Snake.body[i]] = 1;
 
-        grid[Main.comida.celda] = 2;
+        this.grid[Main.comida.celda] = 2;
     }
 }
