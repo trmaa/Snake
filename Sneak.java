@@ -42,12 +42,13 @@ public class Sneak {
     }
 
     public static void die() {
+        if (Main.world.id[Sneak.head][0] != Main.world.id[Sneak.body[0]][0]
+                && Main.world.id[Sneak.head][1] != Main.world.id[Sneak.body[0]][1])
+            Sneak.head = 10000000;
         for (int i = 0; i < Sneak.points; i++) {
             if (Sneak.head == Sneak.body[i])
                 Sneak.head = 10000000;
         }
-        if (Sneak.colide(3))
-            Sneak.head = 10000000;
     }
 
     public static void feed() {
@@ -61,12 +62,15 @@ public class Sneak {
         boolean r = false;
 
         for (int x = 0; x < Main.world.width; x++) {
-            for (int y = 0; y < Main.world.width; y++) {
+            for (int y = 0; y < Main.world.height; y++) {
                 if (Main.world.grid[x + y * Main.world.width] == n) {
-                    if ((x + y * Main.world.width) == Sneak.head)
+                    if ((x + y * Main.world.width) == Sneak.head) {
                         r = true;
-                    else
+                        return r;
+                    } else {
                         r = false;
+                        return r;
+                    }
                 }
             }
         }
