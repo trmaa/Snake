@@ -1,13 +1,13 @@
 public class World {
-    public int width = 33;
-    public int height = 33;
+    public int width = 13;
+    public int height = 13;
 
     public int[] grid = new int[this.width * this.height];
     public int[][] id = new int[this.width * this.height][2];
 
     public World() {
         for (int x = 0; x < this.width; x++) {
-            for (int y = 0; y < this.width; y++) {
+            for (int y = 0; y < this.height; y++) {
                 this.grid[x + y * this.width] = 0;
                 this.id[x + y * this.width][0] = x;
                 this.id[x + y * this.width][1] = y;
@@ -16,8 +16,8 @@ public class World {
     }
 
     public void print() {
-        for (int x = 0; x < this.width; x++) 
-            for (int y = 0; y < this.width; y++) 
+        for (int x = 0; x < this.width; x++)
+            for (int y = 0; y < this.height; y++)
                 this.grid[x + y * this.width] = 0;
 
         this.grid[Snake.head] = 1;

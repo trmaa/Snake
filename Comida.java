@@ -6,8 +6,8 @@ public class Comida {
     }
 
     public int hacerComida() {
-        int x = Utils.redondear(Math.random() * (31 - 1) + 1);
-        int y = Utils.redondear(Math.random() * (31 - 1) + 1);
+        int x = Utils.redondear(Math.random() * Main.world.width);
+        int y = Utils.redondear(Math.random() * Main.world.height);
         return x + y * Main.world.width;
     }
 }
