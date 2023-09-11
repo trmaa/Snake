@@ -1,8 +1,8 @@
 public class Snake {
     public static int head = Main.world.width / 2 + (Main.world.height / 2) * Main.world.height;
-    public static int[] body = new int[30];
+    public static int[] body = new int[100];
 
-    public static int points = 2;
+    public static int points = 3;
     public static int step = 1;
 
     public static Controls controls = new Controls();
