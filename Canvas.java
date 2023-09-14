@@ -1,6 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.Color;
 
 public class Canvas extends JPanel {
     public MyKeyListener kl = new MyKeyListener();
@@ -33,17 +32,17 @@ public class Canvas extends JPanel {
         this.printext(g, "Score: " + (Snake.points - 3), 10, 42, "consolas", 32, new Color(0x005500));
     }
 
-    public void cls(Graphics g, Color c) {
+    private void cls(Graphics g, Color c) {
         g.setColor(c);
         g.fillRect(0, 0, Main.ventana.getWidth(), Main.ventana.getHeight());
     }
 
-    public void print(Graphics g, float x, float y, float w, float h, Color c) {
+    private void print(Graphics g, float x, float y, float w, float h, Color c) {
         g.setColor(c);
         g.fillRect(Math.round(x), Math.round(y), Math.round(w), Math.round(h));
     }
 
-    public void printext(Graphics g, String msg, int x, int y, String fnt, int d, Color c) {
+    private void printext(Graphics g, String msg, int x, int y, String fnt, int d, Color c) {
         g.setColor(c);
         g.setFont(new Font(fnt, Font.BOLD, d));
         g.drawString(msg, x, y);

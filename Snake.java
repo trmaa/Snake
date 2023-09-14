@@ -3,9 +3,9 @@ public class Snake {
     public static int[] body = new int[30];
 
     public static int points = 3;
-    public static int step = 1;
+    private static int step = 1;
 
-    public static Controls controls = new Controls();
+    private static Controls controls = new Controls();
 
     public static void update() {
         Snake.controls.update();
@@ -16,7 +16,7 @@ public class Snake {
         Snake.die();
     }
 
-    public static void move() {
+    private static void move() {
         Snake.body[0] = Snake.head;
 
         switch (controls.dir) {
@@ -35,13 +35,13 @@ public class Snake {
         }
     }
 
-    public static void moveb() {
+    private static void moveb() {
         for (int i = Snake.step; i >= 1; i--)
             Snake.body[i] = Snake.body[i - 1];
         Snake.step += Snake.step < Snake.points - 1 ? 1 : 0;
     }
 
-    public static void die() {
+    private static void die() {
         if (Main.world.id[Snake.head][0] != Main.world.id[Snake.body[0]][0]
                 && Main.world.id[Snake.head][1] != Main.world.id[Snake.body[0]][1])
             Snake.head = 10000000;
@@ -50,7 +50,7 @@ public class Snake {
                 Snake.head = 10000000;
     }
 
-    public static void feed() {
+    private static void feed() {
         if (Snake.colide(2)) {
             Main.comida.celda = Main.comida.hacerComida();
             Snake.points++;

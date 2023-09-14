@@ -17,7 +17,7 @@ public class Main {
         }
     }
 
-    public static void loop() {
+    private static void loop() {
         Main.cvs.repaint();
 
         Snake.update();
